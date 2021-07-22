@@ -7,13 +7,12 @@ class Hanqout(models.Model):
     image = models.CharField(max_length=500, default=None)
     description = models.CharField(max_length=500, default=None)
     venue = models.CharField(max_length=200, default=None)
-    day = models.PositiveIntegerField(default=None)
-    month = models.CharField(max_length=200, default=None)
-    year = models.PositiveIntegerField(default=None)
+    date = models.CharField(max_length=200, default=None)
+    time = models.CharField(max_length=200, default=None)
     keywords = models.CharField(max_length=200)
     worth_a_go = models.BooleanField(default=True, null=True)
     
 
     def __str__(self):
-        return f"{self.title} - {self.description} - {self.day.month.year}"
+        return f"{self.title} - {self.description}"
 
