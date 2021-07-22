@@ -9,6 +9,7 @@ class Hanqout(models.Model):
     venue = models.CharField(max_length=200, default=None)
     date = models.CharField(max_length=200, default=None)
     time = models.CharField(max_length=200, default=None)
+    price = models.CharField(max_length=200, default=None)
     keywords = models.CharField(max_length=200)
     worth_a_go = models.BooleanField(default=True, null=True)
     

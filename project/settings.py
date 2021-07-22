@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jwt_auth',
-    'hanqout'
+    'rest_framework',
+    'hanqout',
+    'comments'
 ]
 
 MIDDLEWARE = [
