@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'jwt_auth',
     'rest_framework',
     'hanqout',
-    'comments'
+    'comments',
+    'categories'
 ]
 
 MIDDLEWARE = [

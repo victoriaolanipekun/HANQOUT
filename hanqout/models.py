@@ -12,7 +12,7 @@ class Hanqout(models.Model):
     price = models.CharField(max_length=200, default=None)
     keywords = models.CharField(max_length=200)
     worth_a_go = models.BooleanField(default=True, null=True)
-    
+    categories = models.ManyToManyField("categories.Category", related_name="hanqouts")
 
     def __str__(self):
         return f"{self.title} - {self.description}"
