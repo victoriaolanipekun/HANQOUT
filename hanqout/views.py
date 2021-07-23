@@ -5,7 +5,7 @@ from rest_framework.exceptions import NotFound # methods to send back a status c
 from rest_framework.exceptions import NotFound # methods to send back a status code
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
-from .models import Hanqout 
+from .models import Hanqout
 from .serializers.common import HanqoutSerializer
 from .serializers.populated import PopulatedHanqoutSerializer
 
@@ -14,13 +14,11 @@ class HanqoutListView(APIView):
 
     def get(self, _request):
         hanqouts = Hanqout.objects.all() # get everything from the hanqouts table in the db
-        print('HANQOUTS', hanqouts)
         serialized_hanqouts = PopulatedHanqoutSerializer(hanqouts, many=True) # transform data into python by running through serializer
-        print('SERIALIZED', serialized_hanqouts.data)
         return Response(serialized_hanqouts.data, status=status.HTTP_200_OK) # return data and status code
 
     def post(self, request):
-        #request.data['owner'] = request.user.id
+        request.data['owner'] = request.user.id
         hanqout_to_add = HanqoutSerializer(data=request.data)
         if hanqout_to_add.is_valid():
             hanqout_to_add.save()

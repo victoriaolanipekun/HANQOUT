@@ -14,6 +14,11 @@ class Hanqout(models.Model):
     worth_a_go = models.BooleanField(default=True, null=True)
     categories = models.ManyToManyField("categories.Category", related_name="hanqouts")
     locations = models.ManyToManyField("locations.Location", related_name="hanqouts")
+    owner = models.ForeignKey(
+        "jwt_auth.User",
+        related_name="hanqouts",
+        on_delete = models.CASCADE
+    )
 
     def __str__(self):
         return f"{self.title} - {self.description}"

@@ -8,6 +8,11 @@ class Comment(models.Model):
         related_name="comments", # what name the field will have on the other model, comments on shows,
         on_delete= models.CASCADE # if a hanqout is deleted, also delete the comments
     )
+    owner = models.ForeignKey(
+        "jwt_auth.User",
+        related_name="comments",
+        on_delete = models.CASCADE
+    )
 
     def __str__(self):
         return f"Comments: {self.text}"
