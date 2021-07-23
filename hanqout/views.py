@@ -2,12 +2,15 @@ from rest_framework.views import APIView # class which facilitates sending back 
 from rest_framework.response import Response # method to send back a response
 from rest_framework import status # methods to send back a status code
 from rest_framework.exceptions import NotFound # methods to send back a status code
+from rest_framework.exceptions import NotFound # methods to send back a status code
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .models import Hanqout 
 from .serializers.common import HanqoutSerializer
 from .serializers.populated import PopulatedHanqoutSerializer
 
 class HanqoutListView(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
     def get(self, _request):
         hanqouts = Hanqout.objects.all() # get everything from the hanqouts table in the db
@@ -26,7 +29,7 @@ class HanqoutListView(APIView):
 
 
 class HanqoutDetailView(APIView):
-    #permission_classes = (IsAuthenticatedOrReadOnly, )
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
     def get_hanqout(self, pk):
         try:

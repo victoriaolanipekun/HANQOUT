@@ -21,5 +21,6 @@ urlpatterns = [
     path('hanqout/', include('hanqout.urls')),
     path('comments/', include('comments.urls')),
     path('categories/', include('categories.urls')),
-    path('locations/', include('locations.urls'))
+    path('locations/', include('locations.urls')),
+    path('auth/', include('jwt_auth.urls'))
 ]
