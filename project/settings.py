@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'hanqout',
     'comments',
-    'categories'
+    'categories',
+    'locations'
 ]
 
 MIDDLEWARE = [
