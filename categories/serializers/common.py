@@ -1,8 +1,8 @@
 from rest_framework import serializers 
-from ..models import Hanqout
+from ..models import Category
 
-class HanqoutSerializer(serializers.ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Hanqout
+        model = Category
         fields = '__all__'
