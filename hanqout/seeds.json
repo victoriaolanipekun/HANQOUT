@@ -1,0 +1,28 @@
+[
+{
+  "model": "hanqout.hanqout",
+  "pk": 1,
+  "fields": {
+    "title": "Meetup in London for Developers",
+    "image": "test.jpg",
+    "description": "hd hbdhbdhbdhbdbbdhbdhbd",
+    "venue": "London bridge and more",
+    "date": "12-08-2021",
+    "time": "12 noon",
+    "price": "50",
+    "keywords": "developers, fun, hangout",
+    "worth_a_go": true,
+    "owner": 1,
+    "categories": [
+      1,
+      2
+    ],
+    "locations": [
+      24,
+      1,
+      3,
+      5
+    ]
+  }
+}
+]

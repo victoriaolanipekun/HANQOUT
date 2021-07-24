@@ -1,0 +1,352 @@
+[
+{
+  "model": "locations.location",
+  "pk": 1,
+  "fields": {
+    "name": "Bath"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 2,
+  "fields": {
+    "name": "Birmingham"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 3,
+  "fields": {
+    "name": "Bradford"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 4,
+  "fields": {
+    "name": "Brighton and Hove"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 5,
+  "fields": {
+    "name": "Bristol"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 6,
+  "fields": {
+    "name": "Cambridge"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 7,
+  "fields": {
+    "name": "Canterbury"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 8,
+  "fields": {
+    "name": "Carlisle"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 9,
+  "fields": {
+    "name": "Chelmsford"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 10,
+  "fields": {
+    "name": "Chichester"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 11,
+  "fields": {
+    "name": "Coventry"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 12,
+  "fields": {
+    "name": "Derby"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 13,
+  "fields": {
+    "name": "Durham"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 14,
+  "fields": {
+    "name": "Ely"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 15,
+  "fields": {
+    "name": "Exeter"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 17,
+  "fields": {
+    "name": "Gloucester"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 18,
+  "fields": {
+    "name": "Hereford"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 19,
+  "fields": {
+    "name": "Kingston upon Hull"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 20,
+  "fields": {
+    "name": "Lancaster"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 21,
+  "fields": {
+    "name": "Leeds"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 22,
+  "fields": {
+    "name": "Leicester"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 23,
+  "fields": {
+    "name": "Lichfield"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 24,
+  "fields": {
+    "name": "London"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 25,
+  "fields": {
+    "name": "Manchester"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 26,
+  "fields": {
+    "name": "Newcastle upon Tyne"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 27,
+  "fields": {
+    "name": "Norwich"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 28,
+  "fields": {
+    "name": "Nottingham"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 29,
+  "fields": {
+    "name": "Oxford"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 30,
+  "fields": {
+    "name": "Peterborough"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 31,
+  "fields": {
+    "name": "Plymouth"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 32,
+  "fields": {
+    "name": "Portsmouth"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 33,
+  "fields": {
+    "name": "Preston"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 34,
+  "fields": {
+    "name": "Ripon"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 35,
+  "fields": {
+    "name": "Salford"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 36,
+  "fields": {
+    "name": "Salisbury"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 37,
+  "fields": {
+    "name": "Sheffield"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 38,
+  "fields": {
+    "name": "Southampton"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 39,
+  "fields": {
+    "name": "St Albans"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 40,
+  "fields": {
+    "name": "Stoke-on-Trent"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 41,
+  "fields": {
+    "name": "Sunderland"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 42,
+  "fields": {
+    "name": "Truro"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 43,
+  "fields": {
+    "name": "Wakefield"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 44,
+  "fields": {
+    "name": "Wells"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 45,
+  "fields": {
+    "name": "Westminster"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 46,
+  "fields": {
+    "name": "Winchester"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 47,
+  "fields": {
+    "name": "Wolverhampton"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 48,
+  "fields": {
+    "name": "Worcester"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 49,
+  "fields": {
+    "name": "York"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 50,
+  "fields": {
+    "name": "Liverpool"
+  }
+},
+{
+  "model": "locations.location",
+  "pk": 51,
+  "fields": {
+    "name": "Lincoln"
+  }
+}
+]

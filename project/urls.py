@@ -18,9 +18,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hanqout/', include('hanqout.urls')),
-    path('comments/', include('comments.urls')),
-    path('categories/', include('categories.urls')),
-    path('locations/', include('locations.urls')),
-    path('auth/', include('jwt_auth.urls'))
+    path('api/hanqout/', include('hanqout.urls')),
+    path('api/comments/', include('comments.urls')),
+    path('api/categories/', include('categories.urls')),
+    path('api/locations/', include('locations.urls')),
+    path('api/auth/', include('jwt_auth.urls'))
 ]
