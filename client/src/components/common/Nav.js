@@ -18,10 +18,10 @@ const Navbar = () => {
                 About us
               </a>
               <div className="buttons">
-                <Link to="/api/login">
+                <Link to="login/">
                   <a className="button is-rounded">Login</a>
                 </Link>
-                <Link to="/api/register">
+                <Link to="register/">
                   <a className="button is-link button is-danger is-rounded">Sign up</a>
                 </Link>
               </div>

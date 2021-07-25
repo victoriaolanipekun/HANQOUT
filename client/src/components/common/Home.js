@@ -11,7 +11,7 @@ const Home = () => {
             <span className="style">hanqout</span> places 
           </p>
           <div className="buttons">
-            <Link to="api/hanqout/"><a className="button is-link button is-danger is-rounded">Find hanqout</a></Link>
+            <Link to="hanqout/"><a className="button is-link button is-danger is-rounded">Find hanqout</a></Link>
           </div>
         </div>
       </section>

@@ -9,7 +9,7 @@ const App = () => {
     <BrowserRouter>
       <Nav />
       <Switch>
-        <Route path="/hanqouts">
+        <Route path="/hanqout/">
           <HanqoutIndex />
         </Route>
         <Route path="/">
