@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Home from './components/common/Home.js'
+import Nav from './components/common/Nav'
+import HanqoutIndex from './components/hanqouts/HanqoutIndex.js'
 
 const App = () => {
-  const [hanqouts, setHanqouts] = useState([])
-
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios.get('api/hanqout/') 
-      setHanqouts(data)
-      console.log(data)
-    }
-    getData()
-  })
-
   return (
-    <>
-      {hanqouts.map(hanqout => <h1 key={hanqout._id}>{hanqout.title}</h1>)}
-    </>
+    <BrowserRouter>
+      <Nav />
+      <Switch>
+        <Route path="/hanqouts">
+          <HanqoutIndex />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   )
 }
+
 
 export default App

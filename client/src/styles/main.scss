@@ -1,0 +1,48 @@
+$white: #ffffff;
+$footer-background-color: #3f3f3f;
+$footer-padding: 2rem 1.5rem;
+$card-header-background-color: $white;
+$box-padding: 1rem;
+
+@import '~bulma/bulma.sass';
+
+.hero {
+  background-image: url('https://i.imgur.com/GP4qP5e.png');
+  background-size: cover;
+}
+
+.navbar-item img {
+  max-height: none;
+  width: 100px
+}
+
+.navbar-item, .navbar-link {
+  color: #000000;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.hero.is-large .hero-body {
+  padding-top: 15rem;
+  padding-bottom: 150px;
+}
+
+.hero.is-info .title{
+  font-size: 56px;
+  font-weight: bold;
+  line-height: initial;
+}
+
+.hero.is-info .style {
+  color: #E8B50A;
+}
+
+.button.is-danger {
+    background-color: #D60C0C;
+}
+
+.button {
+  color: #000000;
+  font-weight: bold;
+  font-size: 14px;
+}
