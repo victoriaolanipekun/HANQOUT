@@ -1,16 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const App = () => {
+  const [hanqouts, setHanqouts] = useState([])
+
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch('/api/endpoint') // * <-- replace with your endpoint
-      const data = await res.json()
+      const { data } = await axios.get('api/hanqout/') 
+      setHanqouts(data)
       console.log(data)
     }
     getData()
   })
 
-  return <h1>Hello World</h1>
+  return (
+    <>
+      {hanqouts.map(hanqout => <h1 key={hanqout._id}>{hanqout.title}</h1>)}
+    </>
+  )
 }
 
 export default App
