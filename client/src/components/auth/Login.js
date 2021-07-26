@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 
 const Login = () => {
@@ -69,8 +69,9 @@ const Login = () => {
               {error && <p className="help is-danger">Sorry, your username or password are incorrect</p>}
             </div>
             <div className="field">
-              <button type="submit" className="button is-fullwidth is-warning">Log Me In!</button>
+              <button type="submit" className="button is-fullwidth is-warning">Login!</button>
             </div>
+            <Link to="/register" className="login-register">Not yet registered? Sign up here!</Link>
           </form>
         </div>
       </div>
