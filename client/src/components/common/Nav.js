@@ -7,9 +7,7 @@ const Navbar = () => {
       <div className="container">
         <div id="navMenu" className="navbar-menu">
           <div className="navbar-start">
-            <a className="navbar-item">
-              <Link to="/"><img src="https://i.imgur.com/GjZZwOs.png" alt="Logo" /></Link>
-            </a>
+            <Link to="/" className="navbar-item"><img src="https://i.imgur.com/GjZZwOs.png" alt="Logo" /></Link>
           </div>
 
           <div className="navbar-end">
@@ -18,11 +16,9 @@ const Navbar = () => {
                 About us
               </a>
               <div className="buttons">
-                <Link to="login/">
-                  <a className="button is-rounded">Login</a>
+                <Link to="login/"className="button is-rounded">Login
                 </Link>
-                <Link to="register/">
-                  <a className="button is-link button is-danger is-rounded">Sign up</a>
+                <Link to="register/" className="button is-link button is-danger is-rounded">Sign up
                 </Link>
               </div>
             </div>

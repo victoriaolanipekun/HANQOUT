@@ -3,12 +3,16 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from './components/common/Home.js'
 import Nav from './components/common/Nav'
 import HanqoutIndex from './components/hanqouts/HanqoutIndex.js'
+import HanqoutShow from './components/hanqouts/HanqoutShow.js'
 
 const App = () => {
   return (
     <BrowserRouter>
       <Nav />
       <Switch>
+        <Route path="/hanqout/:id/">
+          <HanqoutShow />
+        </Route>
         <Route path="/hanqout/">
           <HanqoutIndex />
         </Route>
@@ -19,6 +23,5 @@ const App = () => {
     </BrowserRouter>
   )
 }
-
 
 export default App
