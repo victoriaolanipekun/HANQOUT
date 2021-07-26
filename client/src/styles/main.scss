@@ -38,14 +38,18 @@ $primaryGrey: #E8EDE5;
   color: #E8B50A;
 }
 
-.button.is-danger {
-    background-color: #D60C0C;
-}
-
 .button {
-  color: #000000;
+  color: #ffffff;
   font-weight: bold;
   font-size: 14px;
+}
+
+.button.is-danger {
+  background-color: #d60c0c;
+}
+
+.button.is-outlined {
+  background-color:transparent;
 }
 
 .login-register {

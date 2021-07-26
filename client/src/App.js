@@ -5,6 +5,7 @@ import Nav from './components/common/Nav'
 import HanqoutIndex from './components/hanqouts/HanqoutIndex.js'
 import HanqoutShow from './components/hanqouts/HanqoutShow.js'
 import Register from './components/auth/Register'
+import HanqoutNew from './components/hanqouts/HanqoutNew.js'
 import Login from './components/auth/Login.js'
 
 const App = () => {
@@ -12,6 +13,9 @@ const App = () => {
     <BrowserRouter>
       <Nav />
       <Switch>
+        <Route path="/hanqout/:id/new/">
+          <HanqoutNew />
+        </Route>
         <Route path="/hanqout/:id/">
           <HanqoutShow />
         </Route>

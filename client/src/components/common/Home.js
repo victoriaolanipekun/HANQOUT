@@ -12,6 +12,7 @@ const Home = () => {
           </p>
           <div className="buttons">
             <Link to="hanqout/" className="button is-link button is-danger is-rounded">Find hanqout</Link>
+            <Link to="hanqout/:id/new/" className="button is-outlined is-rounded">Create hanqout</Link>
           </div>
         </div>
       </section>
