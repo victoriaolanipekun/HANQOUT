@@ -16,9 +16,9 @@ const Navbar = () => {
                 About us
               </a>
               <div className="buttons">
-                <Link to="login/"className="button is-rounded">Login
+                <Link to="/login/" className="button is-rounded">Login
                 </Link>
-                <Link to="register/" className="button is-link button is-danger is-rounded">Sign up
+                <Link to="/register/" className="button is-link button is-danger is-rounded">Sign up
                 </Link>
               </div>
             </div>

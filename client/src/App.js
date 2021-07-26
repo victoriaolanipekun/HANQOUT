@@ -5,6 +5,7 @@ import Nav from './components/common/Nav'
 import HanqoutIndex from './components/hanqouts/HanqoutIndex.js'
 import HanqoutShow from './components/hanqouts/HanqoutShow.js'
 import Register from './components/auth/Register'
+import Login from './components/auth/Login.js'
 
 const App = () => {
   return (
@@ -17,8 +18,8 @@ const App = () => {
         <Route path="/hanqout/">
           <HanqoutIndex />
         </Route>
-        <Route path="/register">
-          <Register />
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path="/register">
           <Register />
