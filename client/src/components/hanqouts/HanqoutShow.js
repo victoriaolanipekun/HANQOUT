@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
+import { getTokenFromLocalStorage, getPayload } from '../../helpers/auth'
 
 
 const HanqoutShow = () => {
@@ -22,7 +23,26 @@ const HanqoutShow = () => {
     getData()
   }, [id])
 
+  const userIsOwner = (userId) => {
+    const payload = getPayload()
+    if (!payload) return false
+    return userId === payload.sub
+  }
 
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`/api/hanqout/${id}`, {
+        headers: { 
+          Authorization: `Bearer ${getTokenFromLocalStorage()}`, 
+        },
+      })
+      history.push('/cheeses')
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  //console.log('HAN=>', hanqout)
 
   return (
     <section classtitle="section">
@@ -59,6 +79,12 @@ const HanqoutShow = () => {
                 <hr />
                 <p>{hanqout.worth_a_go}</p>
                 <hr />
+                {userIsOwner(hanqout.owner.id) &&
+                  <div className="buttons">
+                    <button onClick={handleDelete} className="button is-danger">Delete Hanqout</button>
+                    <Link to={`/hanqout/${id}/edit`} className="button is-warning">Edit Hanqout</Link>
+                  </div>
+                }
               </div>
             </div>
           </div>

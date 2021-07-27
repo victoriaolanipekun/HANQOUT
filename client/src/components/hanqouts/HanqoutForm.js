@@ -10,7 +10,9 @@ const HanqoutForm = ({
 }) => {
 
   const [locations, setLocations] = useState(null)
+  const [categories, setCategories] = useState(null)
   const [hasError, setHasError] = useState(false)
+  
 
   useEffect(() => {
     const getData = async () => {
@@ -25,6 +27,19 @@ const HanqoutForm = ({
     getData()
   }, [])
 
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await axios.get('/api/categories/')
+        setCategories(data)
+        console.log('Categories', data)
+      } catch (err) {
+        setHasError(true)
+      }
+    }
+    getData()
+  }, [])
+
   return (
     <div className="columns">
       <form
@@ -32,10 +47,10 @@ const HanqoutForm = ({
         onSubmit={handleSubmit}
       >
         <div className="field">
-          <label className="label">Title </label>
+          <label className="label">Title</label>
           <div className="control">
             <input
-              className={`input ${errors.title ? 'is-danger' : ''}`}
+              className={`input ${errors ? 'is-danger' : ''}`}
               placeholder="Title"
               name="title"
               onChange={handleChange}
@@ -146,6 +161,28 @@ const HanqoutForm = ({
           )}
         </div>
         <div className="field">
+          <label className="label">Categories</label>
+          {categories ?
+            <div className="select is-warning">
+              <select
+                className={`select ${errors.categories ? 'is-danger' : ''}`}
+                name="categories"
+                onChange={handleChange}
+            
+              >
+                <option value="">Select</option>
+                {categories.map(category => (
+                  <option key={category.id} value={category.id}>{category.name}</option>
+                ))}
+              </select>
+            </div>
+            :
+            <h2 className="title has-text-centered">
+              {hasError ? 'Something went wrong 😞' : '...loading'}
+            </h2>
+          }
+        </div>
+        <div className="field">
           <label className="label">Locations</label>
           {locations ?
             <div className="select is-warning">
@@ -153,9 +190,11 @@ const HanqoutForm = ({
                 className={`select ${errors.locations ? 'is-danger' : ''}`}
                 name="locations"
                 onChange={handleChange}
+                
               >
+                <option value="">Select</option>
                 {locations.map(location => (
-                  <option key={location._id} value={location._id}>{location.name}</option>
+                  <option key={location.id} value={location.id}>{location.name}</option>
                 ))}
               </select>
             </div>

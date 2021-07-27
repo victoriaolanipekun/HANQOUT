@@ -11,6 +11,7 @@ const HanqoutIndex = () => {
       try {
         const { data } = await axios.get('/api/hanqout/')
         setHanqouts(data)
+        console.log('data', data)
       } catch (err) {
         setHasError(true)
       }

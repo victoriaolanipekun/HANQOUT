@@ -37,14 +37,22 @@ const HanqoutNew = () => {
   // COME BACK TO THIS
   const handleSubmit = async (event) => {
     event.preventDefault()
+    const cat = parseInt(formData.categories)
+    const categories = Array.from(String(cat), Number)
+    const locate = parseInt(formData.locations)
+    const locations = Array.from(String(locate), Number)
+    formData.categories = categories
+    formData.locations = locations
+
     try {
-      await axios.post(
+      const result = await axios.post(
         '/api/hanqout/',
         formData,
         {
           headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
         }
       )
+      console.log('Result=>', result)
       history.push('/hanqout')
     } catch (err) {
       setErrors(err.response.data.errors)
