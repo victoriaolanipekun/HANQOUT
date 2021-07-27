@@ -1,12 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
-const CheeseForm = ({
+const HanqoutForm = ({
   formData,
   errors,
   handleChange,
   handleSubmit,
   buttonText = 'Submit',
 }) => {
+
+  const [locations, setLocations] = useState(null)
+  const [hasError, setHasError] = useState(false)
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await axios.get('/api/locations/')
+        setLocations(data)
+        console.log('Locations', data)
+      } catch (err) {
+        setHasError(true)
+      }
+    }
+    getData()
+  }, [])
+
   return (
     <div className="columns">
       <form
@@ -14,7 +32,7 @@ const CheeseForm = ({
         onSubmit={handleSubmit}
       >
         <div className="field">
-          <label className="label">Title</label>
+          <label className="label">Title </label>
           <div className="control">
             <input
               className={`input ${errors.title ? 'is-danger' : ''}`}
@@ -128,6 +146,26 @@ const CheeseForm = ({
           )}
         </div>
         <div className="field">
+          <label className="label">Locations</label>
+          {locations ?
+            <div className="select is-warning">
+              <select
+                className={`select ${errors.locations ? 'is-danger' : ''}`}
+                name="locations"
+                onChange={handleChange}
+              >
+                {locations.map(location => (
+                  <option key={location._id} value={location._id}>{location.name}</option>
+                ))}
+              </select>
+            </div>
+            :
+            <h2 className="title has-text-centered">
+              {hasError ? 'Something went wrong 😞' : '...loading'}
+            </h2>
+          }
+        </div>
+        <div className="field">
           <button type="submit" className="button is-warning is-fullwidth">
             {buttonText}
           </button>
@@ -137,4 +175,4 @@ const CheeseForm = ({
   )
 }
 
-export default CheeseForm
+export default HanqoutForm

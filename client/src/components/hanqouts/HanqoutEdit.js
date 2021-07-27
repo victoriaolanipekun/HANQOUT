@@ -1,31 +1,32 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useParams, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { getTokenFromLocalStorage } from '../../helpers/auth'
 import HanqoutForm from './HanqoutForm'
 
-const HanqoutNew = () => {
+const HanqoutEdit = () => {
   const history = useHistory()
+  const { id } = useParams()
   const [formData, setFormData] = useState({
-    title: '',
+    name: '',
+    origin: '',
     image: '',
-    description: '',
-    venue: '',
-    date: '',
-    time: '',
-    price: '',
-    keywords: '',
+    tastingNotes: '',
   })
   const [errors, setErrors] = useState({
-    title: '',
+    name: '',
+    origin: '',
     image: '',
-    description: '',
-    venue: '',
-    date: '',
-    time: '',
-    price: '',
-    keywords: '',
+    tastingNotes: '',
   })
+
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios.get(`/api/hanqout/${id}/`)
+      setFormData(data)
+    }
+    getData()
+  }, [id])
 
   const handleChange = (event) => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
@@ -34,41 +35,35 @@ const HanqoutNew = () => {
     setErrors(newErrors)
   }
 
-  // COME BACK TO THIS
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      await axios.post(
-        '/api/hanqout/',
+      await axios.put(
+        `/api/hanqout/${id}/`,
         formData,
         {
           headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
         }
       )
-      history.push('/hanqout')
+      history.push(`/hanqout/${id}/`)
     } catch (err) {
       setErrors(err.response.data.errors)
     }
   }
 
-  const handleLocationOption = option => {
-    setFormData({ ...formData, location: option })
-  }
-
   return (
-    <section className='section'>
-      <div className='container'>
+    <section className="section">
+      <div className="container">
         <HanqoutForm
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          handleLocationOption={handleLocationOption}
           formData={formData}
           errors={errors}
-          buttonText='Create my Hanqout'
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          buttonText="Edit my Hanqout"
         />
       </div>
     </section>
   )
 }
 
-export default HanqoutNew
+export default HanqoutEdit
