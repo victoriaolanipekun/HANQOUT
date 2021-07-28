@@ -17,6 +17,12 @@ const HanqoutCard = ({ id, title, description, image, price }) => {
           <div className="card-content">
             <h5>{description} - {price} </h5>
           </div>
+          <div className="card-content">
+            {/* <div>{locations.map(location => (
+              <HanqoutCard key={location._id} name={locations.name} id={location.id}/>
+            ))}
+            </div> */}
+          </div>
         </div>
       </Link>
     </div>

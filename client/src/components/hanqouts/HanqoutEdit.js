@@ -8,16 +8,24 @@ const HanqoutEdit = () => {
   const history = useHistory()
   const { id } = useParams()
   const [formData, setFormData] = useState({
-    name: '',
-    origin: '',
+    title: '',
     image: '',
-    tastingNotes: '',
+    description: '',
+    venue: '',
+    date: '',
+    time: '',
+    price: '',
+    keywords: '',
   })
   const [errors, setErrors] = useState({
-    name: '',
-    origin: '',
+    title: '',
     image: '',
-    tastingNotes: '',
+    description: '',
+    venue: '',
+    date: '',
+    time: '',
+    price: '',
+    keywords: '',
   })
 
   useEffect(() => {
