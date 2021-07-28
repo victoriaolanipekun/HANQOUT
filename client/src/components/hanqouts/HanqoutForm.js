@@ -19,7 +19,6 @@ const HanqoutForm = ({
       try {
         const { data } = await axios.get('/api/locations/')
         setLocations(data)
-        console.log('Locations', data)
       } catch (err) {
         setHasError(true)
       }
@@ -32,7 +31,6 @@ const HanqoutForm = ({
       try {
         const { data } = await axios.get('/api/categories/')
         setCategories(data)
-        console.log('Categories', data)
       } catch (err) {
         setHasError(true)
       }
@@ -50,7 +48,7 @@ const HanqoutForm = ({
           <label className="label">Title</label>
           <div className="control">
             <input
-              className={`input ${errors ? 'is-danger' : ''}`}
+              className={`input ${errors.title ? 'is-danger' : ''}`}
               placeholder="Title"
               name="title"
               onChange={handleChange}

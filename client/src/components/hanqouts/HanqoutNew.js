@@ -34,7 +34,7 @@ const HanqoutNew = () => {
     setErrors(newErrors)
   }
 
-  // COME BACK TO THIS
+  
   const handleSubmit = async (event) => {
     event.preventDefault()
     const cat = parseInt(formData.categories)
