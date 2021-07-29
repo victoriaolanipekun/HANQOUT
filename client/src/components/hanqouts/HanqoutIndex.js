@@ -88,7 +88,7 @@ const HanqoutIndex = ({
                 onChange={handleChange}
                   
               >
-                <option value="">Select</option>
+                <option value="">All</option>
                 {locations.map(location => (
                   <option key={location.id} value={location.id}>{location.name}</option>
                 ))}

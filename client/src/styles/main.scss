@@ -7,54 +7,102 @@ $primaryGrey: #E8EDE5;
 
 @import '~bulma/bulma.sass';
 
+
+/*------>HOME PAGE STYLING<--------*/
 .hero {
   background-image: url('https://i.imgur.com/GP4qP5e.png');
   background-size: cover;
 }
 
-.navbar-item img {
-  max-height: none;
-  width: 100px
+.hero.is-large {
+  .hero-body {
+    padding-top: 15rem;
+    padding-bottom: 150px;
+      .title{
+        font-size: 56px;
+        font-weight: bold;
+        line-height: initial;
+      }
+      .style {
+        color: #E8B50A;
+      }
+    .buttons {
+      .button:not(:last-child):not(.is-fullwidth) {
+        padding: 25px;
+        width: 180px;
+        color: #ffffff;
+      }
+      .button.is-danger {
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 0;
+        background-color: #d60c0c;
+      }
+      .button.is-outlined.is-rounded {
+        color: #ffffff;
+        font-weight: bold;
+        padding: 25px;
+        width: 180px;
+        margin-bottom: 0;
+        background-color:transparent;
+      }
+    }
+  }
 }
 
-.navbar-item, .navbar-link {
-  color: #000000;
-  font-size: 14px;
-  font-weight: bold;
+  
+
+/*------>NAVBAR STYLING<--------*/
+.navbar {
+  .navbar-item img {
+    max-height: none;
+    width: 100px
+  }
+  
+  .navbar-item, .navbar-link {
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  
+  .button.is-danger {
+    background-color: #d60c0c;
+  }
+  
+  .login-register {
+    max-width: 50%;
+    color: Grey;
+    margin-top: 30px;
+    font-size: small;
+    font-weight: bold;
+  }
+  
+  .button.is-rounded {
+    width: 120px;
+  }
+  
+  .buttons .button:not(:last-child):not(.is-fullwidth) {
+    width: 120px;
+    color: #000000;
+  }
+  
+  
+  .buttons:last-child {
+    margin-bottom: 5px;
+  }
+  
+  .navbar-item, .navbar-link {
+    margin-right: 30px;
+  }
+  
+  .navbar-item img {
+    margin-left: 30px;
+  }
+  
+  .navbar-item, .navbar-link .find-hanqout {
+    margin-right: 30px;
+  }
 }
 
-.hero.is-large .hero-body {
-  padding-top: 15rem;
-  padding-bottom: 150px;
-}
-
-.hero.is-info .title{
-  font-size: 56px;
-  font-weight: bold;
-  line-height: initial;
-}
-
-.hero.is-info .style {
-  color: #E8B50A;
-}
-
-.button {
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.button.is-danger {
-  background-color: #d60c0c;
-}
-
-.button.is-outlined {
-  background-color:transparent;
-}
-
-.login-register {
-  max-width: 50%;
-  color: Grey;
-  margin-top: 30px;
-  font-size: small;
-}

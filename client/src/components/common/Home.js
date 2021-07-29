@@ -3,19 +3,22 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
-    <>      
-      <section className="hero is-large is-info">
-        <div className="hero-body">
-          <p className="title">
+    <>  
+      <div className="homepage">
+        <section className="hero is-large is-info">
+          <div className="hero-body">
+            <p className="title">
           Find the best <br></br>
-            <span className="style">hanqout</span> places 
-          </p>
-          <div className="buttons">
-            <Link to="hanqout/" className="button is-link button is-danger is-rounded">Find hanqout</Link>
-            <Link to="hanqout/:id/new/" className="button is-outlined is-rounded">Create hanqout</Link>
+              <span className="style">hanqout</span> places 
+            </p>
+            <div className="buttons">
+              <Link to="hanqout/" className="button is-link button is-danger is-rounded is-hovered">Find hanqout</Link>
+              <Link to="hanqout/:id/new/" className="button is-outlined is-rounded">Create hanqout</Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>    
+      
     </>
   )
 }

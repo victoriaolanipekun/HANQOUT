@@ -44,21 +44,27 @@ const Navbar = () => {
           <div className="navbar-end">
             <div className="navbar-item">
               <a className="navbar-item">
+                Events & Venues
+              </a>
+              <a className="navbar-item">
+                Experiences
+              </a>
+              <a className="navbar-item">
                 About us
               </a>
-              {!userIsAuthenticated() ?
-                <>
-                  <div className="buttons">
-                    <Link to="/login/" className="button is-rounded">Login
-                    </Link>
-                    <Link to="/register/" className="button is-link button is-danger is-rounded">Sign up
-                    </Link>
-                  </div>
-                </>
-                :
-                <button className="button is-danger" onClick={handleLogout}>Log Out</button>
-              }
             </div>
+            {!userIsAuthenticated() ?
+              <>
+                <div className="buttons">
+                  <Link to="/login/" className="button is-rounded register-login">Login
+                  </Link>
+                  <Link to="/register/" className="button is-link button is-danger is-rounded register-login">Sign up
+                  </Link>
+                </div>
+              </>
+              :
+              <button className="button is-danger is-rounded" onClick={handleLogout}>Log Out</button>
+            }
           </div>
         </div>
       </div>
