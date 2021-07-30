@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-//import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import HanqoutCard from './HanqoutCard'
 
@@ -82,6 +82,9 @@ const HanqoutIndex = ({
             <p className="subtitle">
       How else will you chill? find your spot already!
             </p>
+            <div className="create-btn">
+              <Link to="/hanqout/:id/new/" className="button is-danger is-rounded">Create hanqout</Link>
+            </div>
           </div>
           <div className="dropdown is-active">
             <div className="dropdown-trigger">

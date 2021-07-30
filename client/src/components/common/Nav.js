@@ -43,15 +43,18 @@ const Navbar = () => {
         <div className={`navbar-menu ${isOpen ? 'is-active' : ''}`}>
           <div className="navbar-end">
             <div className="navbar-item">
-              <a className="navbar-item">
+              <Link to = "/hanqout/" className="navbar-item">
                 Events & Venues
-              </a>
-              <a className="navbar-item">
+              </Link> 
+              <Link to={'/'} className="navbar-item">
                 Experiences
-              </a>
+              </Link> 
               <a className="navbar-item">
                 About us
               </a>
+              <Link to={'/profile/'} className="navbar-item">
+                Profile
+              </Link> 
             </div>
             {!userIsAuthenticated() ?
               <>
@@ -63,7 +66,7 @@ const Navbar = () => {
                 </div>
               </>
               :
-              <button className="button is-danger is-rounded" onClick={handleLogout}>Log Out</button>
+              <button className="button is-rounded" onClick={handleLogout}>Log Out</button>
             }
           </div>
         </div>

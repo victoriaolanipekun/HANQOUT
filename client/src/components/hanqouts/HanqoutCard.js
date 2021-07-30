@@ -19,10 +19,9 @@ const HanqoutCard = ({ id, title, description, image, price }) => {
             <h5>Price: {price} </h5>
           </div>
           <div className="card-content">
-            {/* <div>{locations.map(location => (
-              <HanqoutCard key={location._id} name={locations.name} id={location.id}/>
-            ))}
-            </div> */}
+            <div>
+              <Link to="/profile/" className="button is-outlined is-rounded">Join Now</Link>
+            </div>
           </div>
         </div>
       </Link>

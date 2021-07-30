@@ -36,7 +36,7 @@ const HanqoutShow = () => {
           Authorization: `Bearer ${getTokenFromLocalStorage()}`, 
         },
       })
-      history.push('/cheeses')
+      history.push('/hanqout/')
     } catch (err) {
       console.log(err)
     }
@@ -81,8 +81,8 @@ const HanqoutShow = () => {
                 <hr />
                 {userIsOwner(hanqout.owner.id) &&
                   <div className="buttons">
-                    <button onClick={handleDelete} className="button is-danger">Delete Hanqout</button>
-                    <Link to={`/hanqout/${id}/edit`} className="button is-warning">Edit Hanqout</Link>
+                    <Link to={'/hanqout/'}onClick={handleDelete} className="button is-danger">Delete Hanqout</Link>
+                    <Link to={'/hanqout/:id/edit/'} className="button is-warning">Edit Hanqout</Link>
                   </div>
                 }
               </div>

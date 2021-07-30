@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { getTokenFromLocalStorage } from '../../helpers/auth'
-import HanqoutForm from './HanqoutForm'
+import { getTokenFromLocalStorage } from '../../helpers/auth.js'
+import HanqoutForm from './HanqoutForm.js'
 
 const HanqoutEdit = () => {
   const history = useHistory()

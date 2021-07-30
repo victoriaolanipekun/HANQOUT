@@ -4,6 +4,7 @@ $footer-padding: 2rem 1.5rem;
 $card-header-background-color: $white;
 $box-padding: 1rem;
 $primaryGrey: #E8EDE5;
+$primaryRed: #d60c0c;
 
 @import '~bulma/bulma.sass';
 
@@ -58,18 +59,14 @@ $primaryGrey: #E8EDE5;
     max-height: none;
     width: 100px
   }
-  
   .navbar-item, .navbar-link {
     color: #000000;
     font-size: 14px;
     font-weight: bold;
   }
-  
-  
   .button.is-danger {
-    background-color: #d60c0c;
+    background-color: $primaryRed;
   }
-  
   .login-register {
     max-width: 50%;
     color: Grey;
@@ -77,29 +74,23 @@ $primaryGrey: #E8EDE5;
     font-size: 14px;
     font-weight: bold;
   }
-  
   .button.is-rounded {
     width: 120px;
+    margin-top: 13px;
   }
-  
   .buttons .button:not(:last-child):not(.is-fullwidth) {
     width: 120px;
     color: #000000;
   }
-  
-  
   .buttons:last-child {
     margin-bottom: 5px;
   }
-  
   .navbar-item, .navbar-link {
     margin-right: 30px;
   }
-  
   .navbar-item img {
     margin-left: 30px;
   }
-  
   .navbar-item, .navbar-link.find-hanqout {
     margin-right: 30px;
   }
@@ -115,20 +106,24 @@ $primaryGrey: #E8EDE5;
     background-position: center;
     padding: 100px;
     height: 400px;
-  }
-  .hero.is-link {
-    color: #000000; 
-    font-size: 14px;
-    font-weight: bold;
-  }
-  .hero.is-link .title {
-    margin-left: -75px;
-  }
-  .hero.is-link .subtitle {
-    margin-left: -75px;
-  }
-  .container .columns .is-multiline {
-    display: flex !important; 
-    flex-wrap: wrap !important;
+
+    .hero.is-link {
+      color: #000000; 
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .hero.is-link .title .subtitle{
+      margin-left: -75px;
+    }
+    .container .columns .is-multiline {
+      display: flex !important; 
+      flex-wrap: wrap !important;
+    }
+    .hero-body {
+      .create-btn .is-rounded {
+        background-color: $primaryRed;
+        font-weight: bold;
+      }
+    }
   }
 }
