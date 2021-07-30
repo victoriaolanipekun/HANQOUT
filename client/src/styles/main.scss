@@ -77,6 +77,7 @@ $primaryRed: #d60c0c;
   .button.is-rounded {
     width: 120px;
     margin-top: 13px;
+    font-weight: bold;
   }
   .buttons .button:not(:last-child):not(.is-fullwidth) {
     width: 120px;
@@ -107,23 +108,61 @@ $primaryRed: #d60c0c;
     padding: 100px;
     height: 400px;
 
+    .hero.is-medium .hero-body {
+      margin-top: -50px;
+    }
     .hero.is-link {
       color: #000000; 
       font-size: 14px;
       font-weight: bold;
     }
-    .hero.is-link .title .subtitle{
+    .hero.is-link.title.subtitle{
       margin-left: -75px;
     }
-    .container .columns .is-multiline {
+    .container.columns.is-multiline {
       display: flex !important; 
       flex-wrap: wrap !important;
     }
     .hero-body {
+      margin-left: -70px;
       .create-btn .is-rounded {
         background-color: $primaryRed;
         font-weight: bold;
       }
     }
+    .dropdown.is-active {
+      .dropdown-trigger {
+        font-weight: bold;
+        .select.is-warning select {
+          margin-right: 50px;
+          width: 180px;
+        }
+        .select.is-warning:not(:hover)::after {
+          margin-right: 50px;
+        }
+      }
+    }
   }
+}
+
+
+/*------>HANQOUT SHOW PAGE STYLING<--------*/
+.show-page {
+  .card {
+    height: 410px !important;
+    .card-content.join-btn.button.is-danger.is-light{
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .button.is-danger.is-light {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .image img {
+      height: 160px;
+    }
+  }
+}
+.hero.is-link a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current), .hero.is-link strong {
+  font-size: 14px;
 }
