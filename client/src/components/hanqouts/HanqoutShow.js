@@ -49,16 +49,18 @@ const HanqoutShow = () => {
       <div classtitle="container">
         {hanqout ?
           <div>
-            <h2 classtitle="title has-text-centered">{hanqout.title}</h2>
-            <hr />
             <div classtitle="columns">
               <div classtitle="column is-half">
                 <figure classtitle="image">
                   <img src={hanqout.image} alt={hanqout.title}/>
+                  {/* <h2 classtitle="title has-text-centered">{hanqout.title}</h2> */}
                 </figure>
               </div>
+              <div></div>
               <div classtitle="column is-half">
-                <h4 classtitle="title is-4"><span role="img" aria-label="cheers">🚀</span> Description</h4>
+                <h2 classtitle="title has-text-centered"><span role="img" aria-label="cheers">📕</span><strong>Description</strong></h2>
+                <p>{hanqout.title}</p>
+                <h4 classtitle="title is-4"><span role="img" aria-label="cheers">🚀</span> <strong>Description</strong></h4>
                 <p>{hanqout.description}</p>
                 <hr />
                 <h4 classtitle="title is-4"><span role="img" aria-label="venue">🏟</span> Venue</h4>

@@ -17,6 +17,13 @@ const Home = () => {
             </div>
           </div>
         </section>
+        <footer className="footer">
+          <div className="content has-text-centered">
+            <p>
+              <strong>Made with ❤️ for Developers</strong> 
+            </p>
+          </div>
+        </footer>
       </div>    
       
     </>
