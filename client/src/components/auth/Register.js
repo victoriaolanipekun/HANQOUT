@@ -48,14 +48,14 @@ const Register = () => {
               <label className="label">Username</label>
               <div className="control">
                 <input
-                  className={`input ${errors.username ? 'is-danger' : ''}`}
+                  className={`input ${errors ? 'is-danger' : ''}`}
                   placeholder="Username"
                   onChange={handleChange}
                   name="username"
                   value={formData.username}
                 />
               </div>
-              {errors.username && <p className="help is-danger">{errors.username}</p>}
+              {errors && <p className="help is-danger">{errors}</p>}
             </div>
             <div className="field">
               <label className="label">Email</label>

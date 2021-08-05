@@ -16,6 +16,12 @@ $primaryRed: #d60c0c;
 }
 .footer {
   background-color: $white;
+  margin-top: 7px;
+}
+.sub-title {
+  font-weight: bold;
+  margin-bottom: 24px;
+  font-size: 24px;
 }
 
 .hero.is-large {
@@ -39,7 +45,7 @@ $primaryRed: #d60c0c;
       .button.is-danger {
         color: #ffffff;
         font-weight: bold;
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 0;
         background-color: #d60c0c;
       }
@@ -169,4 +175,10 @@ $primaryRed: #d60c0c;
 }
 .hero.is-link a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current), .hero.is-link strong {
   font-size: 14px;
+}
+
+.user-profile {
+  background-image: url('https://media.giphy.com/media/QxSSrQxSKaFECD7ywx/giphy.gif');
+  background-size: cover;
+  height: 900px;
 }

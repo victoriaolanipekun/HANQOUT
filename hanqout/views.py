@@ -25,6 +25,25 @@ class HanqoutListView(APIView):
             return Response(hanqout_to_add.data, status=status.HTTP_201_CREATED)
         return Response(hanqout_to_add.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
+    
+class HanqoutLocation(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
+    def get(self, _request, pk):
+        location = Hanqout.objects.filter(locations=pk).order_by('id').first()
+        getData = PopulatedHanqoutSerializer(location)
+        if getData:
+            return Response(getData.data, status=status.HTTP_200_OK)
+        return Response(getData.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+class HanqoutCategory(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
+    def get(self, _request, pk):
+        category = Hanqout.objects.filter(categories=pk).order_by('id').first()
+        getData = PopulatedHanqoutSerializer(category)
+        return Response(getData.data, status=status.HTTP_200_OK)
+
 
 class HanqoutDetailView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly, )

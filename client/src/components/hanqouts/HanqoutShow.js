@@ -62,25 +62,16 @@ const HanqoutShow = () => {
                 <p>{hanqout.title}</p>
                 <h4 classtitle="title is-4"><span role="img" aria-label="cheers">🚀</span> <strong>Description</strong></h4>
                 <p>{hanqout.description}</p>
-                <hr />
-                <h4 classtitle="title is-4"><span role="img" aria-label="venue">🏟</span> Venue</h4>
+                <h4 classtitle="title is-4"><span role="img" aria-label="venue">🏟</span> <strong>Venue</strong></h4>
                 <p>{hanqout.venue}</p>
-                <hr />
-                <h4 classtitle="title is-4"><span role="img" aria-label="dollar">💷</span> Price</h4>
-                <hr />
+                <h4 classtitle="title is-4"><span role="img" aria-label="dollar">💷</span> <strong>Price</strong></h4>
                 <p>{hanqout.price}</p>
-                <hr />
-                <h4 classtitle="title is-4"><span role="img" aria-label="date">⏳</span> Date</h4>
-                <hr />
+                <h4 classtitle="title is-4"><span role="img" aria-label="date">⏳</span> <strong>Date</strong></h4>
                 <p>{hanqout.date}</p>
-                <h4 classtitle="title is-4"><span role="img" aria-label="time">🕛</span> Time</h4>
-                <hr />
+                <h4 classtitle="title is-4"><span role="img" aria-label="time">🕛</span><strong>Time</strong></h4>
                 <p>{hanqout.time}</p>
-                <hr />
-                <h4 classtitle="title is-4"><span role="img" aria-label="thought">💭</span> Worth_a_go</h4>
-                <hr />
-                <p>{hanqout.worth_a_go}</p>
-                <hr />
+                {/* <h4 classtitle="title is-4"><span role="img" aria-label="thought">💭</span> Worth_a_go</h4>
+                <p>{hanqout.worth_a_go}</p> */}
                 {userIsOwner(hanqout.owner.id) &&
                   <div className="buttons">
                     <Link to={'/hanqout/'}onClick={handleDelete} className="button is-danger">Delete Hanqout</Link>

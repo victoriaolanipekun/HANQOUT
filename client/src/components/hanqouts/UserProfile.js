@@ -5,7 +5,10 @@ const UserProfile = () => {
 
 
   return (
-    <h2>USER PROFILE</h2>
+    <div className="user-profile">
+      <h2>USER PROFILE</h2>
+    </div>
+    
   )
 
 }

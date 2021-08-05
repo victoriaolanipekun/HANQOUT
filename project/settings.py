@@ -12,20 +12,36 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+import os
+import netifaces
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-mxs&qbf4*-^blz@%d-j$1zt)5quhsolw+ssjhibg%-pkit8v@#'
+# SECRET_KEY = 'django-insecure-mxs&qbf4*-^blz@%d-j$1zt)5quhsolw+ssjhibg%-pkit8v@#'
+
+SECRET_KEY = '16e2017fe36a41812a5c3c4f781e36e2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+def ip_addresses():
+    ip_list = []
+    for interface in netifaces.interfaces():
+        addrs = netifaces.ifaddresses(interface)
+        for x in (netifaces.AF_INET, netifaces.AF_INET6):
+            if x in addrs:
+                ip_list.append(addrs[x][0]['addr'])
+    return ip_list
+
+ALLOWED_HOSTS = ip_addresses()
 
 
 # Application definition
@@ -80,12 +96,20 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = { # added this to use postgres as the database instead of the default sqlite. 
 # do this before running the initali migrations or you will need to do it again
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'Hanqout',
+#         'HOST': 'localhost',
+#         'PORT': 5432
+#  }
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Hanqout',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': '5540fed9b5470de3eac7779b4b42bd14',
         'HOST': 'localhost',
-        'PORT': 5432
- }
+        'PORT': '',
+  }
 }
 
 
