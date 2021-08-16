@@ -76,9 +76,15 @@ I began this project by building the below ERD model(Entity–relationship model
 
 ![Screenshot 2021-08-16 at 13 27 58](https://user-images.githubusercontent.com/71145696/129563753-ced5b474-e1ef-4333-a8ef-aad6525e0080.png)
 
+<h3>Wireframe</h3>
+Then I created a UI wireframe for the project
 
+![wireframe](https://user-images.githubusercontent.com/71145696/129609718-9891c041-99bf-4a48-8c01-0d7cb5408f85.png)
 
+<h3>Project Management</h3>
+<p>I decided to manage the project sprints and development using Trello by breaking it up into several sprints.</p>
 
+![Screenshot 2021-08-16 at 20 17 18](https://user-images.githubusercontent.com/71145696/129617705-e902d474-b312-4f91-bb89-195ab436da45.png)
 
 
 
