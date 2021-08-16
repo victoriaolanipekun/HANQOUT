@@ -72,7 +72,7 @@ This was a solo project and I had 9 days to build a fullstack MERN application u
 
 <h1>Preparation & Organisation</h1>
 <h3>ERD Model</h3>
-I began this project by building the below ERD model(Entity–relationship model). It was quite important that I understand the realtionships between my models and the attributes that each model would need to have.
+I began this project by building the below ERD model(Entity–relationship model). It was quite important that I understood the realtionships between my models and the attributes that each model would need to have.
 
 ![Screenshot 2021-08-16 at 13 27 58](https://user-images.githubusercontent.com/71145696/129563753-ced5b474-e1ef-4333-a8ef-aad6525e0080.png)
 
