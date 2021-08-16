@@ -89,13 +89,13 @@ Then I created a UI wireframe for the project, as this is a super useful step in
 
 <h1>Process</h1>
 <h3>Backend</h3>
-<p>As soon as I was happy with my planning, I began working on the backend as my first step was to create a Django project containing my four apps. The project contains its own individual set of URLs which we would use to distinguish the API endpoints to retrieve any data in the frontend. The project has its own settings where we configured the apps, middleware, databases, our custom made user model, and authentications for the apps to use.
+<p>As soon as I was happy with my planning, I began working on the backend as my first step was to create a Django project containing my four apps. The project contains its own individual set of URLs which we would use to distinguish the API endpoints to retrieve any data in the frontend. The project has its own settings where I configured the apps, middleware, databases, our custom made user model, and authentications for the apps to use.
 
-Django comes with an in-built CMS whereby an administrative user can directly add, update and delete database records. We used Django REST framework to build the API, as it has powerful functionality but allows for customisation all the way down.
+Django comes with an in-built CMS whereby an administrative user can directly add, update and delete database records. I used Django REST framework to build the API, as it has powerful functionality but allows for customisation.
 
-However, in order to access Django’s CMS, a superuser needed to be created aswell as our apps. For each app created, a URL, Model, and Views Python files are automatically created. These newly created apps needed to be included into the main project’s installed apps section to track changes.
+In order to access Django’s CMS, a superuser is needed so I created one, also I created apps. For each app created, a URL, Model, and Views Python files are automatically created. These newly created apps needed to be included into the main project’s installed apps section to track changes.
 
-The last step needed in our setup was to configure our database to be PostgreSQL. By default, Django will use SQLite. To change this, we had to modify the database section in the main project settings to use PostgreSQL by providing the database name and altering our engine to be PostgreSQL.
+Lastly in my setup I configured my database to be PostgreSQL. By default, Django uses SQLite. To change this, I modified the database section in the main project settings to use PostgreSQL by providing the database name and altering my engine to be PostgreSQL.
 </p>
 
 
