@@ -16,6 +16,7 @@ Solo or Group? You are free to work alone or in a group. Both ways have their pr
 * Time-frame: 9 days
 
 <h1>Technologies used</h1>
+
 * Python
 * Django
 * PostgreSQL
