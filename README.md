@@ -109,7 +109,8 @@ The hanqout app had four main models which held relationships with other models.
 
 1. Hanqout Model: 
 
-```
+```python
+
 
     class Hanqout(models.Model):
     title = models.CharField(max_length=50, default=None)
@@ -145,7 +146,7 @@ The hanqout app had four main models which held relationships with other models.
 
 2. Comment Model: 
 
-```
+```python
 
    class Comment(models.Model):
      text = models.TextField(max_length=300)
@@ -173,7 +174,7 @@ The hanqout app had four main models which held relationships with other models.
 
 3. Category Model: 
 
-```
+```python
 
    class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -187,7 +188,7 @@ The hanqout app had four main models which held relationships with other models.
 
 4. Location Model: 
 
-```
+```python
 
    class Location(models.Model):
     name = models.CharField(max_length=50)
@@ -204,7 +205,7 @@ The hanqout app had four main models which held relationships with other models.
 <h>2. JWT_AUTH</h4>
 Django by default already has email, password & password confirmation & usernames, however it doesn't make email required so I changed that by defining these fields and made them required by specifying unique as true:
 
-```
+```python
 
    class User(AbstractUser):
      email = models.CharField(max_length=50, unique=True)
@@ -219,7 +220,7 @@ Django by default already has email, password & password confirmation & username
 
 Next, I created serializers to enable Django communicate with the PostgreSQL database. The serializer translates the data structure from JSON into a format that can be stored or transmitted and reconstructed later. I have included a code snippet of the JWT_AUTH SERIALIZER.
 
-```
+```python
 
    class UserSerializer(serializers.ModelSerializer):
 
@@ -254,7 +255,7 @@ Next, I created serializers to enable Django communicate with the PostgreSQL dat
 I then, implemented Django REST framework to create the views to render my backend data and enable CRUD functionality. I have included a code snippet of the hanqout views.
 
 
-```
+```python
 
    class HanqoutListView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly, )
@@ -278,7 +279,7 @@ I then, implemented Django REST framework to create the views to render my backe
 
 In my project I wrote urls in order to access each app:
 
-```
+```python
 
    urlpatterns = [
      path('', HanqoutListView.as_view()),
@@ -306,7 +307,7 @@ The Frontend was built using React Hooks.
 
 Depending on what the user has selected from the landing page, a redirection is made to either the register or login components. A code snippet for registeration is shown below using the React hook's `formdata`
 
-```
+```javascript
 
    const Register = () => {
     const history = useHistory()
@@ -354,7 +355,7 @@ The hanqout page is were the various created activities can be viewed and joined
 
 ![Screenshot 2021-08-09 at 18 20 57](https://user-images.githubusercontent.com/71145696/129644112-c98c60ca-b3cd-4a5e-b207-6090b1b1187e.png)
 
-```
+```javascript
 
     useEffect(() => {
       const getData = async () => {
@@ -374,7 +375,7 @@ Once the page renders, a GET request is made to the ALL hanqout endpoint and thi
 
 The user is also able to filter by location should they want to see hanqouts around them or in a particular vicinity within the UK. That was defined in the `getHanqoutByLocation` function as seen below:
 
-```
+```javascript
 
    const getHanquotByLocation  = async (locate) => {
       try {
@@ -404,7 +405,7 @@ The user is also able to filter by location should they want to see hanqouts aro
 
 In the render method, I rendered a drop down onto the page with values that are the class types, and a search form is visible which also has a handleChange event handler, where the `getHanquotByLocation` function is called and this gets the new hanquots based on the location:
 
-```
+```javascript
 
    const handleChange = (event) => {
      console.log('Hello=>', event.target.value)
@@ -418,7 +419,7 @@ In the render method, I rendered a drop down onto the page with values that are 
 <h4>Create Hanqout</h4>
 The Create-hanqout form is were the user got to create a new hanqout for others to join. In this form the user is able to select the category and location of the hanqout that is being created. 
 
-```
+```javascript
 
 
     const HanqoutNew = () => {
