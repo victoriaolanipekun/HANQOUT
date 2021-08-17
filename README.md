@@ -102,6 +102,8 @@ Lastly in my setup I configured my database to be PostgreSQL. By default, Django
 <h3>Models</h3>
 
 Once the project had been set up I went ahead in building my two apps. For each app I created a model, and registered them in their respective `admin.py` file. 
+
+<h4>1. Hanqout(Project)</h4>
 For the hanqout app, I created a total of four tables in the database, as shown in my ERD above. 
 The hanqout app had four main models which held relationships with other models. The hanqoutClass, CommentClass, LocationClass and CategoryClass models.
 
@@ -199,8 +201,302 @@ The hanqout app had four main models which held relationships with other models.
 
 
 
+<h>2. JWT_AUTH</h4>
+Django by default already has email, password & password confirmation & usernames, however it doesn't make email required so I changed that by defining these fields and made them required by specifying unique as true:
+
+```
+
+   class User(AbstractUser):
+     email = models.CharField(max_length=50, unique=True)
+     first_name = models.CharField(max_length=50)
+     last_name = models.CharField(max_length=50)
+     profile_image = models.CharField(max_length=300)
+
+```
+* Specifying the email field as true disables users from registering with the same email. The profile_image field allows my users to upload their own image to the database.
+
+<h3>Serializers</h3>
+
+Next, I created serializers to enable Django communicate with the PostgreSQL database. The serializer translates the data structure from JSON into a format that can be stored or transmitted and reconstructed later. I have included a code snippet of the JWT_AUTH SERIALIZER.
+
+```
+
+   class UserSerializer(serializers.ModelSerializer):
+
+    password = serializers.CharField(write_only=True)
+    password_confirmation = serializers.CharField(write_only=True)
+
+    def validate(self, data):
+
+        password = data.pop('password')
+        password_confirmation = data.pop('password_confirmation')
+
+        if password != password_confirmation:
+            raise ValidationError({'password_confirmation': 'Passwords do not match'})
+
+        try:
+            password_validation.validate_password(password=password)
+        except ValidationError as err:
+            raise ValidationError({'password': err.messages})
+
+        data['password'] = make_password(password)
+
+        return data
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'password_confirmation', 'password', 'email')
+
+```
+
+<h3>Views</h3>
+
+I then, implemented Django REST framework to create the views to render my backend data and enable CRUD functionality. I have included a code snippet of the hanqout views.
 
 
+```
+
+   class HanqoutListView(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
+    def get(self, _request):
+        hanqouts = Hanqout.objects.all() # get everything from the hanqouts table in the db
+        serialized_hanqouts = PopulatedHanqoutSerializer(hanqouts, many=True) # transform data into python by running through serializer
+        return Response(serialized_hanqouts.data, status=status.HTTP_200_OK) # return data and status code
+
+    def post(self, request):
+        request.data['owner'] = request.user.id
+        hanqout_to_add = HanqoutSerializer(data=request.data)
+        if hanqout_to_add.is_valid():
+            hanqout_to_add.save()
+            return Response(hanqout_to_add.data, status=status.HTTP_201_CREATED)
+        return Response(hanqout_to_add.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+```
+
+<h3>Urls</h3>
+
+In my project I wrote urls in order to access each app:
+
+```
+
+   urlpatterns = [
+     path('', HanqoutListView.as_view()),
+     path('locations/<int:pk>/', HanqoutLocation.as_view()),
+     path('categories/<int:pk>/', HanqoutCategory.as_view()),
+     path('<int:pk>/', HanqoutDetailView.as_view())
+   ]
+
+```
+I used insomnia to test out all of my routes and requests. 
+
+![Screenshot 2021-08-17 at 00 38 21](https://user-images.githubusercontent.com/71145696/129642096-9a2631aa-c726-4b8e-8086-157a2f861f4b.png)
+
+Now that I was done with the backend I moved on to building the frontend.
+
+<h3>Frontend</h3>
+The Frontend was built using React Hooks. 
+<h4>Homepage</h4> 
+
+<P> The landing page prompts users to find or create hanqouts, and also to either sign up or to login using the action buttons to redirect them to the appropriate page. As a user you can actually view the hanqouts i.e events that had been created by others however to create a new hanqout sign up or refistration is required. I styled the homepage using the Bulma CSS Framework.</p>
+
+![Screenshot 2021-08-09 at 18 21 43](https://user-images.githubusercontent.com/71145696/129551609-8248a1b5-0f20-491b-8e39-adc97d2fcea8.png)
+
+<h4>Registration</h4>
+
+Depending on what the user has selected from the landing page, a redirection is made to either the register or login components. A code snippet for registeration is shown below using the React hook's `formdata`
+
+```
+
+   const Register = () => {
+    const history = useHistory()
+    const [formData, setFormData] = useState({
+      username: '',
+      email: '',
+      password: '',
+      password_confirmation: '',
+      first_name: '',
+      last_name: '',
+    })
+    const [errors, setErrors] = useState({
+      username: '',
+      email: '',
+      password: '',
+      password_confirmation: '',
+      first_name: '',
+      last_name: '',
+    })
+
+    const handleChange = (event) => {
+      const newFormData = { ...formData, [event.target.name]: event.target.value }
+      const newErrors = { ...errors, [event.target.name]: '' }
+      setFormData(newFormData)
+      setErrors(newErrors)
+    }
+
+    const handleSubmit = async event => {
+      event.preventDefault()
+      try {
+        await axios.post('/api/auth/register/', formData)
+        history.push('/login')
+      } catch (err) {
+        setErrors(err.response.data.errors)
+      }
+    }
+
+```
+The error handling function was also included in the build.
+
+
+<h4>Hanqout/Activities(Indexpage)</h4>
+The hanqout page is were the various created activities can be viewed and joined. Also a new hanqout can be created from this page. The index pages can be accesed from the home page as mentioned above or via the navbar. Here the user can see the list of activities. 
+
+
+![Screenshot 2021-08-09 at 18 20 57](https://user-images.githubusercontent.com/71145696/129644112-c98c60ca-b3cd-4a5e-b207-6090b1b1187e.png)
+
+```
+
+    useEffect(() => {
+      const getData = async () => {
+        try {
+          const { data } = await axios.get('/api/hanqout/')
+          setHanqouts(data)
+          console.log('data', data)
+        } catch (err) {
+          setHasError(true)
+        }
+      }
+      getData()
+    }, [])
+
+```
+Once the page renders, a GET request is made to the ALL hanqout endpoint and this is stored into the hanqout state.
+
+The user is also able to filter by location should they want to see hanqouts around them or in a particular vicinity within the UK. That was defined in the `getHanqoutByLocation` function as seen below:
+
+```
+
+   const getHanquotByLocation  = async (locate) => {
+      try {
+        let result = null
+        if (locate !== '') {
+          result = await axios.get(`/api/hanqout/locations/${locate}`)
+        } else {
+          result = await axios.get('/api/hanqout/')
+        }
+
+
+        let data = null
+        if (result.data.id !== undefined) {
+          data = []
+          data.push(result.data)
+        } else {
+          data = result.data
+        }
+
+        setHanqouts(data)
+      } catch (err) {
+        setHasError(true)
+      }
+    }
+
+```
+
+In the render method, I rendered a drop down onto the page with values that are the class types, and a search form is visible which also has a handleChange event handler, where the `getHanquotByLocation` function is called and this gets the new hanquots based on the location:
+
+```
+
+   const handleChange = (event) => {
+     console.log('Hello=>', event.target.value)
+     getHanquotByLocation(event.target.value)
+   }
+
+```
+
+![Screenshot 2021-08-09 at 18 21 12](https://user-images.githubusercontent.com/71145696/129644552-3a7a95cf-eae2-4d74-abdd-bca5d1a9aa0a.png)
+
+<h4>Create Hanqout</h4>
+The Create-hanqout form is were the user got to create a new hanqout for others to join. In this form the user is able to select the category and location of the hanqout that is being created. 
+
+```
+
+
+    const HanqoutNew = () => {
+     const history = useHistory()
+     const [formData, setFormData] = useState({
+       title: '',
+       image: '',
+       description: '',
+       venue: '',
+       date: '',
+       time: '',
+       price: '',
+       keywords: '',
+     })
+     const [errors, setErrors] = useState({
+       title: '',
+       image: '',
+       description: '',
+       venue: '',
+       date: '',
+       time: '',
+       price: '',
+       keywords: '',
+     })
+
+     const handleChange = (event) => {
+       const newFormData = { ...formData, [event.target.name]: event.target.value }
+       const newErrors = { ...errors, [event.target.name]: '' }
+       setFormData(newFormData)
+       setErrors(newErrors)
+     }
+
+
+     const handleSubmit = async (event) => {
+       event.preventDefault()
+       const cat = parseInt(formData.categories)
+       const categories = Array.from(String(cat), Number)
+       const locate = parseInt(formData.locations)
+       const locations = Array.from(String(locate), Number)
+       formData.categories = categories
+       formData.locations = locations
+
+       try {
+         const result = await axios.post(
+           '/api/hanqout/',
+           formData,
+           {
+             headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
+           }
+         )
+         console.log('Result=>', result)
+         history.push('/hanqout')
+       } catch (err) {
+         setErrors(err.response.data.errors)
+       }
+     }
+
+     const handleLocationOption = option => {
+       setFormData({ ...formData, location: option })
+     }
+
+
+```
+
+![Screenshot 2021-08-09 at 18 21 56](https://user-images.githubusercontent.com/71145696/129645567-57405765-0d74-40e1-9aa8-1d1f61e14eb5.png)
+
+<h1>Key Learnings</h1>
+
+* The importance of designing your models and the fields correctly was an important lesson learnt. 
+
+* Working with a new language, Python and how the syntax works.
+
+
+<h1>Future Features</h1>
+
+* Implement comments to each hanqout class. 
+
+* Implement an experience page were users can share their hanqout experiences.
 
 
 
