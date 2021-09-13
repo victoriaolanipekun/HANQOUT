@@ -2,17 +2,22 @@
 
 ![Screenshot 2021-08-09 at 18 21 43](https://user-images.githubusercontent.com/71145696/129551609-8248a1b5-0f20-491b-8e39-adc97d2fcea8.png)
 
+<h1>Overview</h1>
+<p>Welcome to Hanqout. This project was birthed from my interest in how to care for developer's mental health. In my previous experience as a UI/UX designer I had always collaborated with developers and I had a glimpse of how time consuming coding was, however on switching my role to being a full stack developer I understood the demands and how much we developers love to code so I thought of building an application through which developers can hangout, relax and be refreshed to code again. This project was my fourth project for the Software Engineering Immersive course at General Assembly London. 
+ 
+This was a solo project and I had 9 days to build a fullstack MERN application using my own RESTful API with Python(Django) as the backend language and JavaScript(React.js) for the frontend.
+</p>
 
-<h1>Brief & Timeframe</h1>
+<h1>Brief</h1>
 Solo or Group? You are free to work alone or in a group. Both ways have their pros and cons. Remember if you are working in a team that you are all on the same page and working towards the same goal.
 
-* Build a full-stack application by making your own backend and your own front-end
-* Use a Python Django API using Django REST Framework to serve your data from a Postgres database
-* Consume your API with a separate front-end built with React
-* Be a complete product which most likely means multiple relationships and CRUD functionality for at least a couple of models
-* Implement thoughtful user stories/wireframes that are significant enough to help you know which features are core MVP and which you can cut
+* Build a full-stack application by making your own backend and your own front-end.
+* Use a Python Django API using Django REST Framework to serve your data from a Postgres database.
+* Consume your API with a separate front-end built with React.
+* Be a complete product which most likely means multiple relationships and CRUD functionality for at least a couple of models.
+* Implement thoughtful user stories/wireframes that are significant enough to help you know which features are core MVP and which you can cut.
 * Visually impressive design.
-* React Hooks is optional for this project
+* React Hooks is optional for this project.
 * Time-frame: 9 days
 
 <h1>Technologies used</h1>
@@ -64,13 +69,9 @@ To install all the packages in the root directory:
 `python manage.py loaddata hanqout/seeds.json`
 
 
-<h1>Motivation & Introduction</h1>
-<p>Welcome to Hanqout. This project was a birthed from my interest in how to care for developer's mental health. In my previous experience as a UI/UX designer I had always collaborated with developers and I had a glimpse of how time consuming coding was, however on switching my role to being a full stack developer I understood the demands and how much we developers love to code so I thought of building an application through which developers can hangout, relax and be refreshed to code again. This project was my fourth project for the Software Engineering Immersive course. 
- 
-This was a solo project and I had 9 days to build a fullstack MERN application using my own RESTful API with Python(Django) as the backend language and Javascript(React.js) for the frontend.
-</p>
 
-<h1>Preparation & Organisation</h1>
+
+<h1>Approach</h1>
 <h3>ERD Model</h3>
 I began this project by building the below ERD model(Entity–relationship model). It was quite important that I understood the realtionships between my models and the attributes that each model would need to have.
 
@@ -82,7 +83,7 @@ Then I created a UI wireframe for the project, as this is a super useful step in
 ![wireframe](https://user-images.githubusercontent.com/71145696/129609718-9891c041-99bf-4a48-8c01-0d7cb5408f85.png)
 
 <h3>Project Management</h3>
-<p>I decided to manage the project sprints and development using Trello by breaking it up into several sprints with deadlines in days. The features were also listed in order of priority to help me focus while I build</p>
+<p>I decided to manage the project sprints and development using Trello by breaking it up into several sprints with deadlines in days. The features were also listed in order of priority to help me focus while I build.</p>
 
 ![Screenshot 2021-08-16 at 20 17 18](https://user-images.githubusercontent.com/71145696/129617705-e902d474-b312-4f91-bb89-195ab436da45.png)
 
@@ -135,7 +136,7 @@ The hanqout app had four main models which held relationships with other models.
         
 ```
 
-* The Hanqout Class model consist of a title, image, description, venue, date, time, price, keywords, worth_a_go, categories and locations.
+* The Hanqout Class model consists of a title, image, description, venue, date, time, price, keywords, worth_a_go, categories and locations.
 
 * A comment model was created and to be implemented as a bonus feature for users to comment on hanqouts (activities) but due to timeframe limitations wasn't implemented on the frontend.
 * The model, had the following relationships:
@@ -167,7 +168,7 @@ The hanqout app had four main models which held relationships with other models.
 
 ```
 
-* The Comment Class model consist of a text, created_at, hanqouts and owner.
+* The Comment Class model consists of a text, created_at, hanqouts and owner.
 
 * The Comment Class model has a one to many relationship with hanqouts model and custom user model, from the JWT Auth App. This shows that each hanqout or user can have many comment classes. These comment classes can then be displayed on the indexpage on the front-end.
 
@@ -184,7 +185,7 @@ The hanqout app had four main models which held relationships with other models.
         
 ```
 
-* The Category Class model consist of a name. This model has a many to many relationship with the hanqout model which indicates that there are many hanqouts in many categories
+* The Category Class model consists of a name. This model has a many to many relationship with the hanqout model which indicates that there are many hanqouts in many categories.
 
 4. Location Model: 
 
@@ -198,7 +199,7 @@ The hanqout app had four main models which held relationships with other models.
         
 ```
 
-* The Location Class model consist of a name too. This model has a many to many relationship with the hanqout model which indicates that there are many hanqouts in many categories
+* The Location Class model consists of a name too. This model has a many to many relationship with the hanqout model which indicates that there are many hanqouts in many categories
 
 
 
@@ -218,7 +219,7 @@ Django by default already has email, password & password confirmation & username
 
 <h3>Serializers</h3>
 
-Next, I created serializers to enable Django communicate with the PostgreSQL database. The serializer translates the data structure from JSON into a format that can be stored or transmitted and reconstructed later. I have included a code snippet of the JWT_AUTH SERIALIZER.
+Next, I created serializers to enable Django to communicate with the PostgreSQL database. The serializer translates the data structure from JSON into a format that can be stored or transmitted and reconstructed later. I have included a code snippet of the JWT_AUTH SERIALIZER.
 
 ```python
 
@@ -299,7 +300,7 @@ Now that I was done with the backend I moved on to building the frontend.
 The Frontend was built using React Hooks. 
 <h4>Homepage</h4> 
 
-<P> The landing page prompts users to find or create hanqouts, and also to either sign up or to login using the action buttons to redirect them to the appropriate page. As a user you can actually view the hanqouts i.e events that had been created by others however to create a new hanqout sign up or refistration is required. I styled the homepage using the Bulma CSS Framework.</p>
+<P> The landing page prompts users to find or create hanqouts, and also to either sign up or to login using the action buttons to redirect them to the appropriate page. As a user you can actually view the hanqouts i.e events that had been created by others however to create a new hanqout sign up or registration is required. I styled the homepage using the Bulma CSS Framework.</p>
 
 ![Screenshot 2021-08-09 at 18 21 43](https://user-images.githubusercontent.com/71145696/129551609-8248a1b5-0f20-491b-8e39-adc97d2fcea8.png)
 
@@ -417,7 +418,7 @@ In the render method, I rendered a drop down onto the page with values that are 
 ![Screenshot 2021-08-09 at 18 21 12](https://user-images.githubusercontent.com/71145696/129644552-3a7a95cf-eae2-4d74-abdd-bca5d1a9aa0a.png)
 
 <h4>Create Hanqout</h4>
-The Create-hanqout form is were the user got to create a new hanqout for others to join. In this form the user is able to select the category and location of the hanqout that is being created. 
+The Create-hanqout form is where the user gets to create a new hanqout for others to join. In this form the user is able to select the category and location of the hanqout that is being created. 
 
 ```javascript
 
@@ -486,18 +487,22 @@ The Create-hanqout form is were the user got to create a new hanqout for others 
 
 ![Screenshot 2021-08-09 at 18 21 56](https://user-images.githubusercontent.com/71145696/129645567-57405765-0d74-40e1-9aa8-1d1f61e14eb5.png)
 
+
+<h1>Bugs</h1>
+Error handling for forms has not been built.
+
+<h1>Wins</h1>
+My major win was being able to learn and build with a new language, python and this helped me understand how syntaxes in various language can be similar.
+
 <h1>Key Learnings</h1>
-
-* The importance of designing your models and the fields correctly was an important lesson learnt. 
-
-* Working with a new language, Python and how the syntax works.
+An important lesson learnt, was importance of designing my project's models and fields correctly. 
 
 
 <h1>Future Features</h1>
 
 * Implement comments to each hanqout class. 
 
-* Implement an experience page were users can share their hanqout experiences.
+* Implement an experience page where users can share their hanqout experiences.
 
 
 
