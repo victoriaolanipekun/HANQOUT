@@ -5,7 +5,7 @@
 <h1>Overview</h1>
 <p>Welcome to Hanqout. This project was birthed from my interest in how to care for developer's mental health. In my previous experience as a UI/UX designer I had always collaborated with developers and I had a glimpse of how time consuming coding was, however on switching my role to being a full stack developer I understood the demands and how much we developers love to code so I thought of building an application through which developers can hangout, relax and be refreshed to code again. This project was my fourth project for the Software Engineering Immersive course at General Assembly London. 
  
-This was a solo project and I had 9 days to build a fullstack MERN application using my own RESTful API with Python(Django) as the backend language and JavaScript(React.js) for the frontend.
+This was a solo project and I had 9 days to build a fullstack application using my own RESTful API with Python(Django) as the backend language and JavaScript(React.js) for the frontend.
 </p>
 
 <h1>Brief</h1>
