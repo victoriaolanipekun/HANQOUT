@@ -199,7 +199,7 @@ The hanqout app had four main models which held relationships with other models.
         
 ```
 
-* The Location Class model consists of a name too. This model has a many to many relationship with the hanqout model which indicates that there are many hanqouts in many categories
+* The Location Class model consists of a name too. This model has a many to many relationship with the hanqout model which indicates that there are many hanqouts in many categories.
 
 
 
@@ -492,7 +492,7 @@ The Create-hanqout form is where the user gets to create a new hanqout for other
 Error handling for forms has not been built.
 
 <h1>Wins</h1>
-My major win was being able to learn and build with a new language, python and this helped me understand how syntaxes in various language can be similar.
+My major win was being able to learn and build with a new languages Python and this helped me understand how syntaxes in various language can be similar.
 
 <h1>Key Learnings</h1>
 An important lesson learnt, was importance of designing my project's models and fields correctly. 
